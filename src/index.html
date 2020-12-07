@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <style>
+    :root {
+      --alt-color: #bda76d;
+    }
+
+    /* Only for styling, not required for it to work */
+    body {
+      background-color: lightsteelblue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      font-family: "Berkshire Swash", cursive;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    details {
+      margin-bottom: 20px;
+      width: 100%;
+      font-family: sans-serif;
+    }
+
+    details p {
+      padding: 20px;
+    }
+
+    summary {
+      padding: 20px;
+      background-color: #9fb6ce;
+      border: 1px solid #9fb6ce;
+      outline: none;
+      border-radius: 8px;
+    }
+
+    summary:hover,
+    summary:focus {
+      border: 1px solid lightslategray;
+    }
+
+    details {}
+
+    details[open] summary {
+      background-color: lightslategray;
+      border: 1px solid lightslategray;
+
+    }
+
+    details[open] {
+      background: #fff;
+      transition: all ease-in-out;
+    }
+
+    section {
+      max-width: 80%;
+      width: 100%;
+    }
+
+  </style>
+
+  <script type="module" src="/build/fmrl-components.esm.js"></script>
+  <script nomodule src="/build/fmrl-components.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+
+</head>
+
+<body>
+
+  <fmrl-voucher></fmrl-voucher>
+
+  <p></p>
+  <fmrl-link-input label="FMRL" base="fmrl.page.link/" placeholder="word1-word2-word3" button=">" default-value="test" transform="lower"></fmrl-link-input>
+  <p></p>
+  <fmrl-link-input protocol="https" target="_blank" base="hidd.in/" placeholder="WORD1-word2-word3" transform="upper" ></fmrl-link-input>
+
+  <p></p>
+  <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-WOrd2-word3" transform="none" ></fmrl-link-input>
+
+  <p></p>
+  <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-worRD-word3" transform="none" ></fmrl-link-input>
+
+  <!-- <section>
+    <details open>
+      <summary>Link</summary>
+      
+    </details>
+
+    <details>
+      <summary>Background</summary>
+      <div>
+        <form>
+          <fieldset>
+            <label for="url">Background Image URL</label>
+            <input id="url" inputmode="url" type="url">
+          </fieldset>
+
+          <fieldset>
+            <label for="colorPicker">Choose a color:</label>
+            <input type="color" value="" id="colorPicker">
+          </fieldset>
+
+        </form>
+      </div>
+    </details>
+    
+    <details>
+      <summary>FMRL</summary>
+      <fmrl-scramble delay='1000' data='[{"heading":1, "text":"This is message 3"},{"text":"And this is number 4"}]'
+        repeat='2'>
+      </fmrl-scramble>
+    </details>
+
+  </section> -->
+
+
+
+
+</body>
+
+</html>

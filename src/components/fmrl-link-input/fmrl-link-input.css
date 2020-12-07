@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+/*QuickReset*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font: 16px/1.6 sans-serif;
+}
+
+.input-group {
+  display: table;
+  /* border-collapse: collapse; */
+  width: 100%;
+  
+}
+
+.input-group>div {
+  display: table-cell;
+  vertical-align: middle;
+  /* needed for Safari */
+}
+
+.input-group-icon,
+.input-group-button {
+  background: #eee;
+  color: #777;
+  padding: 0 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.input-group-button {
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.input-group-button.disabled {
+  color: #ccc;
+}
+
+.input-group-button:not(.disabled):hover {
+  background-color: #4CAF50; /* Green */
+  border:  1px solid #378339 !important;
+  color: white;
+}
+
+.input-group-area {
+  width: 100%;
+}
+
+.input-group input {
+  border: 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: block;
+  width: 100%;
+  padding: 8px;
+}
+
+.input-group>div:first-child {
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ddd;
+} 
+
+.input-group>div:last-child {
+  border:  1px solid #ddd;
+  border-radius: 0 5px 5px 0;
+}  
