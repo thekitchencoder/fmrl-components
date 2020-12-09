@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+/*QuickReset*/
+* {
+
+  box-sizing: border-box;
+  font: 16px/1.6 sans-serif;
+}

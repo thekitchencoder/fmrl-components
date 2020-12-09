@@ -23,8 +23,6 @@ export class FmrlLinkInput {
     this.value = this.defaultValue;
   }
 
-
-
   render() {
     const button = this.value
       ? <div class="input-group-button {disabled}" onClick={() => this.openUrl()}>{this.button}</div>
@@ -46,7 +44,7 @@ export class FmrlLinkInput {
     this.openUrl()
   }
 
-  private handleChange(event) {
+  private handleChange(event: any) {
     this.value = event.target.value;
   }
 

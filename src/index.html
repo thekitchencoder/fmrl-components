@@ -4,6 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <meta name="referrer" content="never">
+  <meta name="referrer" content="no-referrer">
   <title>Stencil Component Starter</title>
   <style>
     :root {
@@ -19,19 +21,6 @@
       align-items: center;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #fff;
-      font-family: "Berkshire Swash", cursive;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
     details {
       margin-bottom: 20px;
       width: 100%;
@@ -44,28 +33,39 @@
 
     summary {
       padding: 20px;
-      background-color: #9fb6ce;
-      border: 1px solid #9fb6ce;
-      outline: none;
+      background-color: #d4dbe2;
+
       border-radius: 8px;
     }
 
     summary:hover,
     summary:focus {
-      border: 1px solid lightslategray;
+      background-color: lightslategray;
     }
 
-    details {}
+    details {
+      border-radius: 8px;
+    }
 
     details[open] summary {
-      background-color: lightslategray;
-      border: 1px solid lightslategray;
+      background-color: #d4dbe2;
+      /* border: 1px solid lightslategray; */
+      border-radius: 8px 8px 0 0;
 
     }
 
     details[open] {
-      background: #fff;
+      background: #f4f7fa;
       transition: all ease-in-out;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    fmrl-link-input{
+      margin-top: 10px;
     }
 
     section {
@@ -83,21 +83,43 @@
 </head>
 
 <body>
+  <section>
 
-  <fmrl-voucher></fmrl-voucher>
+    <details open>
+      <summary>Voucher</summary>
+      <div class="content">
+        <!-- 1234-ABCDEF-5678 -->
+        <fmrl-voucher encrypted="true" hint="Day1-Day2" code="Mu~lomdqj1DV0cph" type="mastercard" amount="£5:00">
+          <h1>Congrats</h1>
+          <p>You've got yourself a little gift xx</p>
+        </fmrl-voucher>
+      </div>
+    </details>
 
-  <p></p>
-  <fmrl-link-input label="FMRL" base="fmrl.page.link/" placeholder="word1-word2-word3" button=">" default-value="test" transform="lower"></fmrl-link-input>
-  <p></p>
-  <fmrl-link-input protocol="https" target="_blank" base="hidd.in/" placeholder="WORD1-word2-word3" transform="upper" ></fmrl-link-input>
+    <details>
+      <summary>Encrypt</summary>
+      <div class="content">
+        <fmrl-otp-encrypt></fmrl-otp-encrypt>
+      </div>
+    </details>
+    <details>
+      <summary>input link</summary>
+      <div class="content">
+        <fmrl-link-input label="FMRL" base="fmrl.page.link/" placeholder="word1-word2-word3" button=">"
+          default-value="test" transform="lower"></fmrl-link-input>
 
-  <p></p>
-  <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-WOrd2-word3" transform="none" ></fmrl-link-input>
+        <fmrl-link-input protocol="https" target="_blank" base="hidd.in/" placeholder="WORD1-word2-word3"
+          transform="upper">
+        </fmrl-link-input>
 
-  <p></p>
-  <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-worRD-word3" transform="none" ></fmrl-link-input>
+        <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-WOrd2-word3" transform="none">
+        </fmrl-link-input>
 
-  <!-- <section>
+        <fmrl-link-input protocol="https" base="hidd.in/" placeholder="word1-worRD-word3" transform="none">
+        </fmrl-link-input>
+      </div>
+    </details>
+    <!-- 
     <details open>
       <summary>Link</summary>
       
@@ -128,8 +150,8 @@
       </fmrl-scramble>
     </details>
 
-  </section> -->
-
+   -->
+  </section>
 
 
 

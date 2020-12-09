@@ -16,6 +16,14 @@ export namespace Components {
         "target": string;
         "transform": 'lower' | 'upper' | 'none';
     }
+    interface FmrlOtpEncrypt {
+    }
+    interface FmrlRedeemInstructionsAmazon {
+    }
+    interface FmrlRedeemInstructionsApple {
+    }
+    interface FmrlRedeemInstructionsMastercard {
+    }
     interface FmrlScramble {
         "data": string;
         "dataSrc": string;
@@ -24,9 +32,16 @@ export namespace Components {
     }
     interface FmrlScrambleText {
         "heading": 1 | 2 | 3 | 4 | 5 | 6;
+        "startText": string;
         "text": string;
     }
     interface FmrlVoucher {
+        "amount": string;
+        "code": string;
+        "encrypted": boolean;
+        "hint": string;
+        "link": string;
+        "type": 'amazon' | 'apple' | 'mastercard' | 'other';
     }
 }
 declare global {
@@ -35,6 +50,30 @@ declare global {
     var HTMLFmrlLinkInputElement: {
         prototype: HTMLFmrlLinkInputElement;
         new (): HTMLFmrlLinkInputElement;
+    };
+    interface HTMLFmrlOtpEncryptElement extends Components.FmrlOtpEncrypt, HTMLStencilElement {
+    }
+    var HTMLFmrlOtpEncryptElement: {
+        prototype: HTMLFmrlOtpEncryptElement;
+        new (): HTMLFmrlOtpEncryptElement;
+    };
+    interface HTMLFmrlRedeemInstructionsAmazonElement extends Components.FmrlRedeemInstructionsAmazon, HTMLStencilElement {
+    }
+    var HTMLFmrlRedeemInstructionsAmazonElement: {
+        prototype: HTMLFmrlRedeemInstructionsAmazonElement;
+        new (): HTMLFmrlRedeemInstructionsAmazonElement;
+    };
+    interface HTMLFmrlRedeemInstructionsAppleElement extends Components.FmrlRedeemInstructionsApple, HTMLStencilElement {
+    }
+    var HTMLFmrlRedeemInstructionsAppleElement: {
+        prototype: HTMLFmrlRedeemInstructionsAppleElement;
+        new (): HTMLFmrlRedeemInstructionsAppleElement;
+    };
+    interface HTMLFmrlRedeemInstructionsMastercardElement extends Components.FmrlRedeemInstructionsMastercard, HTMLStencilElement {
+    }
+    var HTMLFmrlRedeemInstructionsMastercardElement: {
+        prototype: HTMLFmrlRedeemInstructionsMastercardElement;
+        new (): HTMLFmrlRedeemInstructionsMastercardElement;
     };
     interface HTMLFmrlScrambleElement extends Components.FmrlScramble, HTMLStencilElement {
     }
@@ -56,6 +95,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "fmrl-link-input": HTMLFmrlLinkInputElement;
+        "fmrl-otp-encrypt": HTMLFmrlOtpEncryptElement;
+        "fmrl-redeem-instructions-amazon": HTMLFmrlRedeemInstructionsAmazonElement;
+        "fmrl-redeem-instructions-apple": HTMLFmrlRedeemInstructionsAppleElement;
+        "fmrl-redeem-instructions-mastercard": HTMLFmrlRedeemInstructionsMastercardElement;
         "fmrl-scramble": HTMLFmrlScrambleElement;
         "fmrl-scramble-text": HTMLFmrlScrambleTextElement;
         "fmrl-voucher": HTMLFmrlVoucherElement;
@@ -72,6 +115,14 @@ declare namespace LocalJSX {
         "target"?: string;
         "transform"?: 'lower' | 'upper' | 'none';
     }
+    interface FmrlOtpEncrypt {
+    }
+    interface FmrlRedeemInstructionsAmazon {
+    }
+    interface FmrlRedeemInstructionsApple {
+    }
+    interface FmrlRedeemInstructionsMastercard {
+    }
     interface FmrlScramble {
         "data"?: string;
         "dataSrc"?: string;
@@ -81,12 +132,23 @@ declare namespace LocalJSX {
     interface FmrlScrambleText {
         "heading"?: 1 | 2 | 3 | 4 | 5 | 6;
         "onScrambleDone"?: (event: CustomEvent<any>) => void;
+        "startText"?: string;
         "text"?: string;
     }
     interface FmrlVoucher {
+        "amount"?: string;
+        "code"?: string;
+        "encrypted"?: boolean;
+        "hint"?: string;
+        "link"?: string;
+        "type"?: 'amazon' | 'apple' | 'mastercard' | 'other';
     }
     interface IntrinsicElements {
         "fmrl-link-input": FmrlLinkInput;
+        "fmrl-otp-encrypt": FmrlOtpEncrypt;
+        "fmrl-redeem-instructions-amazon": FmrlRedeemInstructionsAmazon;
+        "fmrl-redeem-instructions-apple": FmrlRedeemInstructionsApple;
+        "fmrl-redeem-instructions-mastercard": FmrlRedeemInstructionsMastercard;
         "fmrl-scramble": FmrlScramble;
         "fmrl-scramble-text": FmrlScrambleText;
         "fmrl-voucher": FmrlVoucher;
@@ -97,6 +159,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fmrl-link-input": LocalJSX.FmrlLinkInput & JSXBase.HTMLAttributes<HTMLFmrlLinkInputElement>;
+            "fmrl-otp-encrypt": LocalJSX.FmrlOtpEncrypt & JSXBase.HTMLAttributes<HTMLFmrlOtpEncryptElement>;
+            "fmrl-redeem-instructions-amazon": LocalJSX.FmrlRedeemInstructionsAmazon & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsAmazonElement>;
+            "fmrl-redeem-instructions-apple": LocalJSX.FmrlRedeemInstructionsApple & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsAppleElement>;
+            "fmrl-redeem-instructions-mastercard": LocalJSX.FmrlRedeemInstructionsMastercard & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsMastercardElement>;
             "fmrl-scramble": LocalJSX.FmrlScramble & JSXBase.HTMLAttributes<HTMLFmrlScrambleElement>;
             "fmrl-scramble-text": LocalJSX.FmrlScrambleText & JSXBase.HTMLAttributes<HTMLFmrlScrambleTextElement>;
             "fmrl-voucher": LocalJSX.FmrlVoucher & JSXBase.HTMLAttributes<HTMLFmrlVoucherElement>;

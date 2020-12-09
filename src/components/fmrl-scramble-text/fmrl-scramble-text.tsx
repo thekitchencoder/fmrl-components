@@ -34,6 +34,7 @@ export class ScrambleText {
 
   @State() message: any[] = [];
 
+  @Prop({attribute: 'start-with'}) startText: string
   @Prop() text: string;
   @Watch('text')
   handleTextChange(){
@@ -48,6 +49,12 @@ export class ScrambleText {
     window.setTimeout(() => {
       this.start();
     }, 100);
+  }
+
+  componentWillLoad() {
+    if(this.startText) {
+      this.message = [...this.startText];
+    }
   }
 
   render() {

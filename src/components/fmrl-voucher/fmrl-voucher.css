@@ -1,3 +1,16 @@
 :host {
   display: block;
 }
+
+ion-card-title {
+  font-size: 2rem;
+}
+
+ion-card img {
+  max-width: 400px;
+  height: auto;
+}
+
+section{
+  margin-top: 1rem;
+}

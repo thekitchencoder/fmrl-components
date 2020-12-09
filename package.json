@@ -1,7 +1,8 @@
 {
-  "name": "fmrl-components",
-  "version": "0.1.0",
-  "description": "Web Components for fmrl",
+  "name": "@thekitchencodery/fmrl-components",
+  "version": "0.0.1",
+  "description": "Web Components for https://fmrl.page still very much a work in progress",
+  "author": "thekitchencoder <chris@thekitchencodery.com>",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -25,5 +26,17 @@
     "@stencil/core": "2.3.0",
     "@stencil/sass": "^1.4.0"
   },
-  "license": "MIT"
+  "devDependencies": {
+    "@capacitor/core": "^2.4.4",
+    "@ionic/core": "^5.5.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thekitchencoder/fmrl-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thekitchencoder/fmrl-components/issues"
+  },
+  "homepage": "https://github.com/thekitchencoder/fmrl-components#readme"
 }
