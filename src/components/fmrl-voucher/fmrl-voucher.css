@@ -14,3 +14,7 @@ ion-card img {
 section{
   margin-top: 1rem;
 }
+
+fmrl-scramble-text {
+  cursor: pointer;
+}
