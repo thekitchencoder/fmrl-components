@@ -21,7 +21,7 @@ export class FmrlVoucher {
 
 
   @Prop() amount: string;
-  @Prop() type: 'amazon' | 'apple' | 'tremendous' | 'other'
+  @Prop() type: 'amazon' | 'apple' | 'tremendous' | 'bod' | 'other'
   @Prop() link: string;
   @Prop() hint: string;
   @Prop() target: string = '_self';
@@ -39,35 +39,11 @@ export class FmrlVoucher {
       case 'apple':
         this.redeemLink = `https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/freeProductCodeWizard?certId=${this.code}`;
         break;
+      case 'bod':
+        this.redeemLink = `sms:${this.link}&body=${encodeURIComponent(this.code)}`;
+        break;
     }
   }
-
-  // async presentToastWithOptions() {
-  //   const toast = await toastController.create({
-  //     header: 'Toast header',
-  //     message: 'Click to Close',
-  //     position: 'top',
-  //     buttons: [
-  //       {
-  //         side: 'start',
-  //         icon: 'star',
-  //         text: 'Favorite',
-  //         handler: async () => {
-  //           console.log('Favorite clicked');
-  //           await CopyService.copy(this.code)
-  //         }
-  //       }, {
-  //         text: 'Done',
-  //         role: 'cancel',
-  //         handler: () => {
-  //           console.log('Cancel clicked');
-  //           window.location.href = "https://www.prepaiddigitalsolutions.com/";
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   toast.present();
-  // }
 
 
   componentWillLoad() {
@@ -107,7 +83,7 @@ export class FmrlVoucher {
     let voucherCode;
     if (this.encrypted) {
       voucherCode = [
-        <span>***-*****-****</span>, <ion-button fill="outline" slot="end" onClick={() => this.decrypt()}>Redeem</ion-button>
+        <span>***-*****-****</span>, <ion-button fill="outline" slot="end" onClick={() => this.decrypt()}>Decrypt</ion-button>
       ];
     } else {
       voucherCode = [
@@ -143,7 +119,7 @@ export class FmrlVoucher {
   redeemVoucher() {
     console.log(this.redeemLink);
     return CopyService.copy(this.code).then(() => window.open(this.redeemLink, this.target));
-    
+
   }
 
   parseType() {
@@ -169,6 +145,13 @@ export class FmrlVoucher {
         this.icon = 'logo-apple';
         image = 'apple.svg';
         instructions = <fmrl-redeem-instructions-apple></fmrl-redeem-instructions-apple>;
+        break;
+      
+      case 'bod':
+        this.subtitle = 'Virtual Cash Card'
+        this.icon = 'cash-outline';
+        image = 'mastercard.svg';
+        instructions = <fmrl-redeem-bod tel={this.link}></fmrl-redeem-bod>;
         break;
 
       default:

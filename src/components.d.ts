@@ -25,6 +25,9 @@ export namespace Components {
     }
     interface FmrlOtpEncrypt {
     }
+    interface FmrlRedeemBod {
+        "tel": string;
+    }
     interface FmrlRedeemInstructionsAmazon {
     }
     interface FmrlRedeemInstructionsApple {
@@ -49,7 +52,7 @@ export namespace Components {
         "hint": string;
         "link": string;
         "target": string;
-        "type": 'amazon' | 'apple' | 'tremendous' | 'other';
+        "type": 'amazon' | 'apple' | 'tremendous' | 'bod' | 'other';
     }
 }
 declare global {
@@ -70,6 +73,12 @@ declare global {
     var HTMLFmrlOtpEncryptElement: {
         prototype: HTMLFmrlOtpEncryptElement;
         new (): HTMLFmrlOtpEncryptElement;
+    };
+    interface HTMLFmrlRedeemBodElement extends Components.FmrlRedeemBod, HTMLStencilElement {
+    }
+    var HTMLFmrlRedeemBodElement: {
+        prototype: HTMLFmrlRedeemBodElement;
+        new (): HTMLFmrlRedeemBodElement;
     };
     interface HTMLFmrlRedeemInstructionsAmazonElement extends Components.FmrlRedeemInstructionsAmazon, HTMLStencilElement {
     }
@@ -111,6 +120,7 @@ declare global {
         "fmrl-encrypted-link": HTMLFmrlEncryptedLinkElement;
         "fmrl-link-input": HTMLFmrlLinkInputElement;
         "fmrl-otp-encrypt": HTMLFmrlOtpEncryptElement;
+        "fmrl-redeem-bod": HTMLFmrlRedeemBodElement;
         "fmrl-redeem-instructions-amazon": HTMLFmrlRedeemInstructionsAmazonElement;
         "fmrl-redeem-instructions-apple": HTMLFmrlRedeemInstructionsAppleElement;
         "fmrl-redeem-instructions-tremendous": HTMLFmrlRedeemInstructionsTremendousElement;
@@ -139,6 +149,9 @@ declare namespace LocalJSX {
     }
     interface FmrlOtpEncrypt {
     }
+    interface FmrlRedeemBod {
+        "tel"?: string;
+    }
     interface FmrlRedeemInstructionsAmazon {
     }
     interface FmrlRedeemInstructionsApple {
@@ -164,12 +177,13 @@ declare namespace LocalJSX {
         "hint"?: string;
         "link"?: string;
         "target"?: string;
-        "type"?: 'amazon' | 'apple' | 'tremendous' | 'other';
+        "type"?: 'amazon' | 'apple' | 'tremendous' | 'bod' | 'other';
     }
     interface IntrinsicElements {
         "fmrl-encrypted-link": FmrlEncryptedLink;
         "fmrl-link-input": FmrlLinkInput;
         "fmrl-otp-encrypt": FmrlOtpEncrypt;
+        "fmrl-redeem-bod": FmrlRedeemBod;
         "fmrl-redeem-instructions-amazon": FmrlRedeemInstructionsAmazon;
         "fmrl-redeem-instructions-apple": FmrlRedeemInstructionsApple;
         "fmrl-redeem-instructions-tremendous": FmrlRedeemInstructionsTremendous;
@@ -185,6 +199,7 @@ declare module "@stencil/core" {
             "fmrl-encrypted-link": LocalJSX.FmrlEncryptedLink & JSXBase.HTMLAttributes<HTMLFmrlEncryptedLinkElement>;
             "fmrl-link-input": LocalJSX.FmrlLinkInput & JSXBase.HTMLAttributes<HTMLFmrlLinkInputElement>;
             "fmrl-otp-encrypt": LocalJSX.FmrlOtpEncrypt & JSXBase.HTMLAttributes<HTMLFmrlOtpEncryptElement>;
+            "fmrl-redeem-bod": LocalJSX.FmrlRedeemBod & JSXBase.HTMLAttributes<HTMLFmrlRedeemBodElement>;
             "fmrl-redeem-instructions-amazon": LocalJSX.FmrlRedeemInstructionsAmazon & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsAmazonElement>;
             "fmrl-redeem-instructions-apple": LocalJSX.FmrlRedeemInstructionsApple & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsAppleElement>;
             "fmrl-redeem-instructions-tremendous": LocalJSX.FmrlRedeemInstructionsTremendous & JSXBase.HTMLAttributes<HTMLFmrlRedeemInstructionsTremendousElement>;
