@@ -19,6 +19,7 @@ export class FmrlCountdown {
   @Prop() time: number;
 
   connectedCallback() {
+    this.updateMessage();
     window.setInterval(() => {
       this.updateMessage();
     }, 1000);
@@ -32,16 +33,6 @@ export class FmrlCountdown {
     const now = dayjs();
     const other = dayjs(this.time);
     const duration = dayjs.duration(other.diff(now))
-
-    // const pad = (val, padding) => (padding + val).slice(-2);
-    // const ifNotZero = (val: number, suffix: string, padding = '0') => val ? pad(val, padding) + suffix : '';
-
-    // const days = ifNotZero(Math.floor(duration.asDays()), 'd', '');
-    // const hours = ifNotZero(Math.abs(duration.hours()), 'h');
-    // const mins = ifNotZero(Math.abs(duration.minutes()), 'm');
-    // const secs = ifNotZero(Math.abs(duration.seconds()), 's');
-    // // not quirte rite as counts down from 60 seconds
-    //this.message = `${days} ${hours} ${mins} ${secs}`;
     this.message = duration.humanize(true);
   }
 
