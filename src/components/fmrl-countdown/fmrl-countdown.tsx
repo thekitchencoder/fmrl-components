@@ -1,4 +1,4 @@
-import { Component, h, Prop, Listen, State } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
