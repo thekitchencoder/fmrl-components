@@ -42,9 +42,9 @@ export class FmrlOtpEncrypt {
   render() {
     return (
       <Host>
-        <textarea placeholder="plain" value={this.plain} onInput={(event) => this.handlePlainChange(event)}></textarea>{this.plainLen}/{this.keyLen}
+        <input placeholder="plain" value={this.plain} onInput={(event) => this.handlePlainChange(event)}></input>
         <input placeholder="key" value={this.key} onInput={(event) => this.handleKeyChange(event)}></input>
-        <button onClick={() => this.handleEncrypt()}>Encrypt</button>
+        <button onClick={() => this.handleEncrypt()}>Encrypt</button> [{this.plainLen || 0}/{this.keyLen || 0}]
         <pre>{this.outputCypher}</pre>
 
         <input placeholder="cypher" value={this.cypher} onInput={(event) => this.handleCypherChange(event)}></input>

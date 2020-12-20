@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop } from '@stencil/core';
-import { alertController } from '@ionic/core';
+import { alertController, toastController } from '@ionic/core';
 import { OtpService } from '../../utils/otp-service'
 
 @Component({
@@ -19,13 +19,12 @@ export class FmrlEncryptedLink {
     const alert = await alertController.create({
       header: 'fmrl encrypted link',
       subHeader: 'You need the key to open it.',
-      // message: this.hint && `Your hint is:<br/> ${this.hint}`,
-      message: (this.help ?? '') + (this.hint ? `<strong>Your hint is:</strong><br/> <em>${this.hint}</em>` : ''),
+      message: (this.help ?? '') + (this.hint ? `<br/><strong>Your hint is:</strong><br/> <em>${this.hint}</em>` : ''),
 
       inputs: [
         {
           name: 'key',
-          placeholder: 'Enter your key here'
+          placeholder: 'Enter Key Here'
         }
       ],
       buttons: [
@@ -35,12 +34,9 @@ export class FmrlEncryptedLink {
         },
         {
           text: 'Open',
-          handler: data => {
+          handler: async data => {
             if (data && data.key) {
-
-              const decrypted = OtpService.decrypt(this.href, data.key);
-
-              window.open(`${this.base ?? ''}${decrypted}`, this.target);
+              await this.decryptLink(data.key);
             }
           }
         }
@@ -59,6 +55,32 @@ export class FmrlEncryptedLink {
         </a>
       </Host>
     );
+  }
+
+  private async decryptLink(key: string) {
+    try {
+      const decrypted = OtpService.decrypt(this.href, key);
+      const url = `${this.base ?? ''}${decrypted}`;
+      // todo - bit oif a hack need to check has decoded to a valid URL (but not a relative one)
+      if (this.base || url.startsWith('http')) {
+        window.open(url, this.target);
+      } else {
+        await this.invalidKey();
+      }
+    } catch (e) {
+      console.log(e);
+      await this.invalidKey();
+    }
+  }
+
+  private async invalidKey() {
+    const toast = await toastController.create({
+      header: 'Sorry',
+      message: `That's not the correct key`,
+      duration: 3000,
+      color: 'dark'
+    });
+    toast.present();
   }
 
 }

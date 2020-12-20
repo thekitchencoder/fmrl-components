@@ -15,14 +15,13 @@ export class FmrlRedeemBod {
         <ul>
           <li>Click 'redeem'</li>
           <li>The voucher code will be copied into a SMS</li>
-          <li>Send the SMS</li>
-          <li>Await your money 🤑</li>
+          <li>Send the SMS and wait 🤑</li>
         </ul>
         <h5>If you need to redeem your code manually:</h5>
         <ul>
           <li>Tap the claim code to copy to the clipboard</li>
           <li>Send it as a text message to {this.tel}</li>
-          <li>Await your money 🤑</li>
+          <li>Sit back and wait 🤑</li>
         </ul>
         <hr/>
         <h5>NOTE: If your code has been encrypted you will need to enter the key to decrypt the code first</h5>
