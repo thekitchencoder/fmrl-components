@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface FmrlCountdown {
+        "time": number;
+    }
     interface FmrlEncryptedLink {
         "base": string;
         "help": string;
@@ -56,6 +59,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFmrlCountdownElement extends Components.FmrlCountdown, HTMLStencilElement {
+    }
+    var HTMLFmrlCountdownElement: {
+        prototype: HTMLFmrlCountdownElement;
+        new (): HTMLFmrlCountdownElement;
+    };
     interface HTMLFmrlEncryptedLinkElement extends Components.FmrlEncryptedLink, HTMLStencilElement {
     }
     var HTMLFmrlEncryptedLinkElement: {
@@ -117,6 +126,7 @@ declare global {
         new (): HTMLFmrlVoucherElement;
     };
     interface HTMLElementTagNameMap {
+        "fmrl-countdown": HTMLFmrlCountdownElement;
         "fmrl-encrypted-link": HTMLFmrlEncryptedLinkElement;
         "fmrl-link-input": HTMLFmrlLinkInputElement;
         "fmrl-otp-encrypt": HTMLFmrlOtpEncryptElement;
@@ -130,6 +140,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FmrlCountdown {
+        "time"?: number;
+    }
     interface FmrlEncryptedLink {
         "base"?: string;
         "help"?: string;
@@ -180,6 +193,7 @@ declare namespace LocalJSX {
         "type"?: 'amazon' | 'apple' | 'tremendous' | 'bod' | 'other';
     }
     interface IntrinsicElements {
+        "fmrl-countdown": FmrlCountdown;
         "fmrl-encrypted-link": FmrlEncryptedLink;
         "fmrl-link-input": FmrlLinkInput;
         "fmrl-otp-encrypt": FmrlOtpEncrypt;
@@ -196,6 +210,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fmrl-countdown": LocalJSX.FmrlCountdown & JSXBase.HTMLAttributes<HTMLFmrlCountdownElement>;
             "fmrl-encrypted-link": LocalJSX.FmrlEncryptedLink & JSXBase.HTMLAttributes<HTMLFmrlEncryptedLinkElement>;
             "fmrl-link-input": LocalJSX.FmrlLinkInput & JSXBase.HTMLAttributes<HTMLFmrlLinkInputElement>;
             "fmrl-otp-encrypt": LocalJSX.FmrlOtpEncrypt & JSXBase.HTMLAttributes<HTMLFmrlOtpEncryptElement>;

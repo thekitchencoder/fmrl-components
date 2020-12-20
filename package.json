@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "@stencil/core": "2.3.0",
-    "@stencil/sass": "^1.4.0"
+    "@stencil/sass": "^1.4.0",
+    "dayjs": "^1.9.7"
   },
   "devDependencies": {
     "@capacitor/core": "^2.4.4",
